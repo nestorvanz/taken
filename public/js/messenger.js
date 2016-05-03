@@ -62,11 +62,11 @@
 				
 				$rootScope.__message = message;
 				$rootScope.__messageTimer = $timeout(function(){
-					$('message .message').transition('fade up');
+					$('messages .message').transition('fade up');
 				}, time);
 
-				if( !$('message .message').is(':visible') ){
-					$('message .message').transition('fade up');
+				if( !$('messages .message').is(':visible') ){
+					$('messages .message').transition('fade up');
 				}
 			},
 			success: function( title, message ){
@@ -88,7 +88,7 @@
 		return {
 			restrict: 'E',
 			template:
-				'<style>message #message{ max-width: 350px; padding: 0 10px; position: fixed; bottom: 10px; right: 10px; width: 100%; z-index: 1001; }</style>'+
+				'<style>messages #message{ max-width: 350px; padding: 0 10px; position: fixed; bottom: 10px; right: 10px; width: 100%; z-index: 1001; }</style>'+
 				'<div id="message">'+
 					'<div class="ui message {{__message.type}} hidden">'+
 						'<i class="close icon" ng-click="close()"></i>'+
@@ -109,7 +109,7 @@
 							'<i class="remove icon"></i> No'+
 						'</div>'+
 						'<div ng-click="__confirm.next()" class="ui green inverted button">'+
-							'<i class="checkmark icon"></i>Yes'+
+							'<i class="checkmark icon"></i>Si'+
 						'</div>'+
 					'</div>'+
 				'</div>',

@@ -33,20 +33,25 @@
 	</h1>
 	
 	<div class="ui middle aligned divided very relaxed selection list files">
-		<a ng-href="#/{{file._id}}" ng-if="file.isDirectory" class="item" ng-repeat="file in files | orderBy:'isDirectory'">
-			<i class="folder icon"></i>
-			<div class="content">
-				<div class="header">{{file.name}}</div>
-			</div>
-		</a>
-
-		<div ng-href="#/{{file._id}}" ng-if="!file.isDirectory" class="item" ng-repeat="file in files | orderBy:'isDirectory'">
+		<div ng-if="file.isDirectory" class="item cursor auto" ng-repeat="file in files | orderBy:['name']">
 			<div class="right floated negative content" ng-if="!file.takenBy">
-				<div class="ui mini button" ng-click="tomarArchivo(file)">Tomar</div>
+				<div class="ui mini button" ng-click="eliminar( file )">Eliminar</div>
+			</div>
+
+			<i class="folder icon"></i>
+			<a class="content" ng-href="#/{{file._id}}">
+				<div class="header">{{file.name}}</div>
+			</a>
+		</div>
+
+		<div ng-href="#/{{file._id}}" ng-if="!file.isDirectory" class="item" ng-repeat="file in files | orderBy:['name']">
+			<div class="right floated negative content" ng-if="!file.takenBy">
+				<div class="ui mini teal button" ng-click="tomarArchivo(file)">Tomar</div>
+				<div class="ui mini button" ng-click="eliminar( file )">Eliminar</div>
 			</div>
 			<div class="right floated content" ng-if="file.takenBy">
 				<div class="ui mini positive button" ng-click="liberarArchivo( file )" ng-if="file.takenBy._id == __usuario._id">Liberar</div>
-				<label for="" ng-if="file.takenBy._id != __usuario._id">{{file.takenBy.nombre}}</label>
+				<label for="" ng-if="file.takenBy._id != __usuario._id">Tomado por: <strong>{{file.takenBy.nombre}}</strong></label>
 			</div>
 			<i class="file icon"></i>
 			<div class="content">
