@@ -12,7 +12,7 @@ module.exports = function( auth, databases ){
 	router.put("/files/take", auth.api, controller.tomar);
 	// router.put("/files", auth.api, controller.actualizar);
 	// // Delete
-	// router.delete("/files/:id", auth.api, controller.eliminar);
+	router.delete("/files/:id", auth.api, controller.eliminar);
 
 	return router;
 };

@@ -24,14 +24,24 @@ module.exports = function( database ){
 				else res.json(file);
 			});
 		},
-		// eliminar: function( req, res ){
-		// 	var match = { _id: req.params.id };
+		eliminar: function( req, res ){
+			var match = { parent: req.params.id };
 
-		// 	File.remove(match, function( error ){
-		// 		if( error ) res.status(500).send(error.message);
-		// 		else res.send();
-		// 	});
-		// },
+			File.find(match, {}, function( error, data ){
+				if( error ) res.status(500).send(error.message);
+				else {
+					if( data.length ) res.status(403).send("No se puede eliminar un directorio con elementos, asegurese de vaciar el directorio antes de eliminarlo.");
+					else{
+						var match = { _id: req.params.id };
+
+						File.remove(match, function( error ){
+							if( error ) res.status(500).send(error.message);
+							else res.send();
+						});
+					}
+				}
+			});
+		},
 		porID: function( req, res ){
 			var match = { _id: req.params.id };
 
