@@ -54,16 +54,20 @@
 						.modal(config)
 						.modal("hide");
 				},
-				open: function( selector ){
+				open: function( selector, next ){
 					var config = {
 						observeChanges: true
 					};
-
+					if( next ) config.onVisible = function (){
+						setTimeout(function(){
+							next();
+						}, 0);
+					};
 					$timeout(function(){
 						$('.ui.modal' +selector)
 							.modal(config)
 							.modal("show");
-					}, 1)
+					}, 1);
 				},
 				remove: function( selector ){
 					$('body > .modals > .ui.modal' +selector).remove();

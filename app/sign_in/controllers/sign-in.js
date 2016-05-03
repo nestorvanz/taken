@@ -1,6 +1,10 @@
 (function(){
-	angular.module('signIn', [])
-	.controller('signInController', ['$scope', '$http', function( $scope, $http ){
+	angular.module("signIn", [])
+	.controller("signInController", ["$scope", "$http", function( $scope, $http ){
+		setTimeout(function(){
+			document.getElementsByName("correo")[0].focus();
+		}, 1);
+		
 		$scope.signIn = function(){
 			var usuario = $scope.usuario;
 			if( usuario && usuario.correo && usuario.contrasena  ){

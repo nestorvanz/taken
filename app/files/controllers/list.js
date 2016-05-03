@@ -22,7 +22,9 @@
 
 
 		$scope.abrirAgregarArchivo = function(){
-			layout.modal.open("#file");
+			layout.modal.open("#file", function(){
+				$(".ui.modal#file [name=nombre]")[0].focus();
+			});
 		};
 
 		$scope.cerrarAgregarArchivo = function(){
