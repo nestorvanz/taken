@@ -1,0 +1,10 @@
+<div class="layout apps display none" ng-click="layout.showApps()">
+	<div class="cont h100 max w100 float right display none">
+		<div class="ui vertical inverted labeled icon menu">
+			<a ng-href="{{app.url}}" class="item" ng-repeat="app in __apps">
+				<i class="{{app.icono}} icon"></i>
+				{{app.nombre}}
+			</a>
+		</div>
+	</div>
+</div>

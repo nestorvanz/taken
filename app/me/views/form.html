@@ -1,0 +1,58 @@
+<div ng-controller="formController" class="page max w400 margin auto">
+	<div class="layout toolbar">
+		<div class="tools ui secondary menu">
+			<a class="item hide when tiny" ng-click="layout.showMenu()">
+				<i class="sidebar icon"></i>
+				Menú
+			</a>
+			<a class="icon item display none show when tiny" ng-click="layout.showMenu()">
+				<i class="sidebar icon"></i>
+			</a>
+			
+			<div class="item padding5">
+				<h3>
+					Editar información de usuario
+				</h3>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<form name="formDatos" angular-validator angular-validator-submit="submit()" novalidate class="ui form" enctype="multipart/form-data">
+			<div class="field">
+				<label for="">Nombre</label>
+				<input type="text" ng-model="usuario.nombre" name="nombre" required>
+			</div>
+			<div class="field">
+				<label for="">Correo</label>
+				<input type="email" ng-model="usuario.correo" name="correo" required>
+			</div>
+			<div class="field">
+				<label for="">Foto</label>
+				<div file ng-model="usuario.foto" uri="/api/usuarios/foto" label="Seleccione archivo..." picker="true" size-buttons="tiny"></div>
+			</div>
+			<div class="field">
+				<label for="">Acerca de mi</label>
+				<textarea ng-model="usuario.descripcion"></textarea>
+			</div>
+			<div class="field">
+				<label for="">Nueva contraseña</label>
+				<input type="password" ng-model="usuario.contrasenaNueva" name="contrasenaNueva">
+			</div>
+			<div class="field">
+				<label for="">Confirmar contraseña</label>
+				<input type="password" ng-model="usuario.confirmarContrasena" name="confirmarContrasena" validator="usuario.contrasenaNueva == usuario.confirmarContrasena" invalid-message="'La nueva contraseña y la confirmacion de contraseña deben coincidir'">
+			</div>
+			<div class="ui info message">
+				Ingrese su contraseña actual para poder guardar los cambiar realizados
+			</div>
+			<div class="field">
+				<label for="">Contraseña actual</label>
+				<input type="password" ng-model="usuario.contrasena" name="contrasena" required>
+			</div>
+			<div class="field" align="right">
+				<a class="ui button" href="#/">Cancelar</a>
+				<button class="ui teal button">Guardar cambios</button>
+			</div>
+		</form>
+	</div>
+</div>

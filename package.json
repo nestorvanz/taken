@@ -1,0 +1,16 @@
+{
+  "name": "Taken",
+  "description": "App for mark files as taken by user",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "client-sessions": "^0.7.0",
+    "crypto": "0.0.3",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^6.2.0",
+    "mongoose": "^4.4.14",
+    "multer": "^1.1.0"
+  },
+  "engines": {
+    "node": "4.4.3"
+  }
+}

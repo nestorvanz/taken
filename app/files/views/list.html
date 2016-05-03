@@ -1,0 +1,80 @@
+<style>
+	.ui.list.files .ui.button{
+		margin-top: -5px;
+		margin-bottom: -5px;
+	}
+</style>
+
+<div ng-controller="listController" class="page">
+	<div class="layout toolbar">
+		<div class="tools ui secondary menu">
+			<div class="item padding5">
+				<h3>
+					<a href="#/{{current.parent._id}}">
+						<i class="left arrow icon" ng-if="params.id"></i>
+						{{(current.parent && current.parent.name) || (params.id ? 'root' : '')}}
+					</a>
+				</h3>
+			</div>
+
+			<div class="right menu item no padding">
+				<div class="item no padding" align="right">
+					<button ng-click="abrirAgregarArchivo()" class="ui teal button">
+						Nuevo archivo
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1 class="ui header no margin">
+		{{current.name || 'root'}}
+		<div class="sub header">Archivos del directorio</div>
+	</h1>
+	
+	<div class="ui middle aligned divided very relaxed selection list files">
+		<a ng-href="#/{{file._id}}" ng-if="file.isDirectory" class="item" ng-repeat="file in files | orderBy:'isDirectory'">
+			<i class="folder icon"></i>
+			<div class="content">
+				<div class="header">{{file.name}}</div>
+			</div>
+		</a>
+
+		<div ng-href="#/{{file._id}}" ng-if="!file.isDirectory" class="item" ng-repeat="file in files | orderBy:'isDirectory'">
+			<div class="right floated negative content" ng-if="!file.takenBy">
+				<div class="ui mini button" ng-click="tomarArchivo(file)">Tomar</div>
+			</div>
+			<div class="right floated content" ng-if="file.takenBy">
+				<div class="ui mini positive button" ng-click="liberarArchivo( file )" ng-if="file.takenBy._id == __usuario._id">Liberar</div>
+				<label for="" ng-if="file.takenBy._id != __usuario._id">{{file.takenBy.nombre}}</label>
+			</div>
+			<i class="file icon"></i>
+			<div class="content">
+				<div class="header">{{file.name}}</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui modal" id="file">
+		<i class="close icon"></i>
+		<div class="header">Agregar Archivo</div>
+		<div class="content">
+			<form class="ui form max w400 margin auto" angular-validator angular-validator-submit="submit()" name="fileForm" novalidate>
+				<div class="field">
+					<label for="">Nombre</label>
+					<input type="text" ng-model="file.name" name="nombre" required>
+				</div>
+				<div class="field">
+					<div class="ui checkbox">
+						<input type="checkbox" id="example" ng-model="file.isDirectory">
+						<label for="example" class="cursor pointer">Is directory</label>
+					</div>
+				</div>
+				<div class="field" align="right">
+					<button type="button" class="ui button" ng-click="cerrarAgregarArchivo()">Cancelar</button>
+					<button type="submit" class="ui button teal">Agregar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
