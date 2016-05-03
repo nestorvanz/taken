@@ -5,6 +5,7 @@
 .align.vertical.middle { vertical-align: middle; }
 .align.vertical.top { vertical-align: top; }
 .cell { display: table-cell; }
+.cursor.auto { cursor: auto !important; }
 .cursor.pointer { cursor: pointer !important; }
 .dark.transparent2 { background: rgba(0,0,0,0.2) !important; }
 .dark.transparent3 { background: rgba(0,0,0,0.3) !important; }

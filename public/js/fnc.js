@@ -3,17 +3,18 @@
 	.factory("fnc", ["$http", function( $http ){
 		var fnc = {
 			api: {
-				delete: function( uri, callback ){
+				delete: function( uri, callback, onError ){
 					uri += uri.indexOf("?") == -1 ? "?":"&" + (new Date).getTime().toString();
 					$http.delete(uri)
 					.success(function(data){
 						callback(data)
-					}).error(this.error);
+					}).error(this.error)
+					.finally(onError);
 				},
 				error: function( data, status, header, config ){
-					
 					if( status == 401 ){
 						location.reload();
+						return false;
 					}
 					else if ( fnc.api.message ){
 						fnc.api.message.error("Error " +status, data);
@@ -21,32 +22,37 @@
 					else {
 						alert("Error " + status + "\n" + data);
 					}
+
+					if( fnc.api.onError ) fnc.api.onError();
 				},
-				get: function( uri, callback ){
+				get: function( uri, callback, onError ){
 					uri += (uri.indexOf("?") == -1 ? "?":"&") + (new Date).getTime().toString();
 					$http.get(uri)
 					.success(function(data){
 						callback(data)
-					}).error(this.error);
+					}).error(this.error)
+					.finally(onError);
 				},
 				message: function( driver ){
 					this.message = driver;
 				},
-				post: function( uri, data, callback ){
+				post: function( uri, data, callback, onError ){
 					uri += uri.indexOf("?") == -1 ? "?":"&" + (new Date).getTime().toString();
 
 					$http.post(uri, data)
 					.success(function(data){
 						callback(data)
-					}).error(this.error);
+					}).error(this.error)
+					.finally(onError);
 				},
-				put: function( uri, data, callback, formData ){
+				put: function( uri, data, callback, onError ){
 					uri += uri.indexOf("?") == -1 ? "?":"&" + (new Date).getTime().toString();
 
 					$http.put(uri, data)
 					.success(function(data){
 						callback(data)
-					}).error(this.error);
+					}).error(this.error)
+					.finally(onError);
 				},
 			},
 			clone: function() {

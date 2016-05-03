@@ -29,6 +29,17 @@
 			layout.modal.close("#file");
 		};
 
+		$scope.eliminar = function( file ){
+			message.confirm.open("trash", file.name, "¿Está seguro que desea eliminar el archivo?", function(){
+				fnc.index($scope.files);
+				fnc.api.delete("/api/files/" + file._id, function( data ){
+					$scope.files.splice(file.index, 1);
+				}, function(){
+					message.confirm.close();
+				});
+			});
+		}
+
 		$scope.liberarArchivo = function( file ){
 			message.confirm.open("unlock", file.name, "¿Está seguro que desea liberar el archivo?", function(){
 				file.takenBy = $scope.__usuario._id;
