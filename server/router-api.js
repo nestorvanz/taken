@@ -12,12 +12,12 @@ router.use(bodyParser.json()); // Use body parser for JSON format into XHR reque
 
 var environment = "";
 if( process.env.NODE_ENV == "production" ){
-	environmen = process.env.NODE_ENV
+	environment = "/" + process.env.NODE_ENV
 }
 
 // Databases connection
 var databases = {
-	taken: dbcon.connect( require("./databases/" + environment + "/taken.json") )
+	taken: dbcon.connect( require("./databases" + environment + "/taken.json") )
 };
 
 fs.readdirSync(repository).forEach(function( file ){ // Read each file into repository
