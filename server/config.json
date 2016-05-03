@@ -1,0 +1,9 @@
+{
+	"cookieName": "TakenCookie",
+	"port": 3000,
+	"secretString": "TakenApplication",
+	"userRoot": {
+		"name": "Root",
+		"email": "root@root"
+	}
+}

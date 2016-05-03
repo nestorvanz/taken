@@ -1,0 +1,6 @@
+{
+	"provider": "MongoDB",
+	"server": "localhost",
+	"port": 27017,
+	"name": "taken"
+}

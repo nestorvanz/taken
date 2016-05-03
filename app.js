@@ -1,7 +1,9 @@
-var config = require("./config"),
+var config = require("./server/config"),
 	express = require("express");
 
 var app = express();
+
+app.use(require("./server/router-api"));
 
 app.get("/", function( req, res ){
 	res.send("My first application...");
