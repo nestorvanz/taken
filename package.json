@@ -1,0 +1,10 @@
+{
+	"name": "Taken",
+	"description": "App for mark files as taken by user",
+	"dependencies": {
+		"express": "^4.13.4"
+	},
+	"engines": {
+		"node": "4.4.3"
+	}
+}
