@@ -1,0 +1,9 @@
+{
+	"provider": "MongoDB",
+	"server": "ds013182.mlab.com",
+	"port": 13182,
+	"name": "taken",
+	"security": true,
+	"user": "taken-app",
+	"password": "takenMongo"
+}
