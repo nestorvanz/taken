@@ -1,6 +1,7 @@
 (function(){
 	angular.module("card", [])
 	.controller("cardController", ["$scope", "fnc", function( $scope, fnc ){
+		console.log($scope.__usuario);
 		fnc.api.get("/api/usuarios/" + $scope.__usuario._id, function( data ){
 			$scope.usuario = data;
 		});
