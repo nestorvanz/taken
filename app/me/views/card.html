@@ -1,0 +1,51 @@
+<div ng-controller="cardController" class="page max w400 margin auto">
+	<div class="layout toolbar">
+		<div class="tools ui secondary menu">
+			<a class="item hide when tiny" ng-click="layout.showMenu()">
+				<i class="sidebar icon"></i>
+				Menú
+			</a>
+			<a class="icon item display none show when tiny" ng-click="layout.showMenu()">
+				<i class="sidebar icon"></i>
+			</a>
+			
+			<div class="item padding5">
+				<h3>
+					Información de usuario
+				</h3>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="ui card margin auto">
+			<div class="image">
+				<img ng-src="{{usuario.foto}}">
+			</div>
+			<div class="content">
+				<div class="header">{{usuario.nombre}}</div>
+				<div class="meta">
+					<span class="date">{{usuario.correo}}</span>
+				</div>
+				<div class="description">
+					{{usuario.acercaDe}}
+				</div>
+			</div>
+			<div class="extra content">
+				<div class="table">
+					<div class="cell vertical align middle">
+						<a href="#/edit">
+							<i class="edit icon"></i>
+							Editar
+						</a>
+					</div>
+					<div class="cell">
+						<button ng-click="salir()" class="ui negative button right floated">
+							<i class="sign out icon"></i>
+							Salir
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

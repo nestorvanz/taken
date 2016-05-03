@@ -1,0 +1,18 @@
+/*@import url(https://fonts.googleapis.com/css?family=Great+Vibes);*/
+body {
+	background: url('../img/backgrounds/index.jpg') center;
+	/*https://9to5mac.files.wordpress.com/2013/09/rolling-waves.jpg*/
+	background-size: cover;
+}
+
+.logo {
+	display: inline-block;
+	font-size: 3em;
+	position: relative;
+}
+.logo span{ font-family: 'Great Vibes', cursive; }
+.logo .sub.header {
+	bottom: 6px;
+	position: absolute;
+	left: -2px;
+}

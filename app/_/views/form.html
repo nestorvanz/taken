@@ -1,0 +1,38 @@
+<div ng-controller="formController" class="page max w400 margin auto">
+	<div class="layout toolbar">
+		<div class="tools ui secondary menu">
+			<a class="item hide when tiny" ng-click="layout.showMenu()">
+				<i class="sidebar icon"></i>
+				Menú
+			</a>
+			<a class="icon item display none show when tiny" ng-click="layout.showMenu()">
+				<i class="sidebar icon"></i>
+			</a>
+			
+			<div class="item padding5">
+				<h3>
+					{{id ? 'Editar':'Agregar'}} elemento (Esto es un ejemplo)
+				</h3>
+			</div>
+		</div>
+	</div>
+
+	<form name="formElemento" angular-validator angular-validator-submit="submit()" novalidate class="ui form">
+		<div class="field">
+			<label for="">Nombre</label>
+			<input type="text" ng-model="elemento.nombre" name="nombre" required>
+		</div>
+		<div class="field" align="right">
+			<a href="#/" class="ui button">
+				Cancelar
+			</a>
+			<button type="button" ng-click="delete()" class="ui negative button" ng-if="id">
+				Eliminar
+			</button>
+			<button class="ui positive button">
+				Guardar
+			</button>
+		</div>
+	</form>
+
+</div>

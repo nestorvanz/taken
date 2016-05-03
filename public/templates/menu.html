@@ -1,0 +1,12 @@
+<div class="layout menu display none" ng-click="layout.showMenu()">
+	<div class="cont h100 max w250 display none">
+		<div class="ui vertical inverted menu w100">
+			<!-- <a ng-repeat="option in __menu" href="{{option.url}}" class="item">
+				{{option.nombre}}
+			</a> -->
+			<a href="/" class="item" ng-class="{active: __menu.selectedOption == 'users'}">Users</a>
+			<a href="/" class="item" ng-class="{active: __menu.selectedOption == 'opcion1'}">Opcion 2</a>
+			<a href="/" class="item" ng-class="{active: __menu.selectedOption == 'opcion1'}">Opcion 3</a>
+		</div>
+	</div>
+</div>
