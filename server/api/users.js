@@ -6,7 +6,7 @@ module.exports = function( auth, databases ){
 
 	// Get
 	// router.get("/controladores", controller.todos);
-	router.get("/usuarios/:id", controller.porID);
+	router.get("/usuarios/:id", auth.api, controller.porID);
 	// Post
 	router.post("/usuarios/foto", auth.api, controller.foto);
 	// Put (Update)
