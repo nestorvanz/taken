@@ -1,0 +1,9 @@
+<style>
+	.ui.basic.icon.buttons .delete.file { color: #DB2828 !important; }
+	.ui.basic.icon.buttons .download.file { color: #2185D0 !important; }
+</style>
+<div class="ui basic icon buttons {{sizeButtons}}">
+	<button ngf-select="upload( $file )" class="ui button max overflow ellipsis" style="max-width: {{maxWidth || '100%'}};" ng-class="{'loading': isUploading}" title="Subir archivo" ng-disabled="onlyDownload"><i class="upload icon"></i> {{label}}</button>
+	<button ng-click="download()" class="ui button" title="Descargar archivo" ng-class="{'download file': ngModel}" ng-disabled="!ngModel"><i class="download icon"></i></button>
+	<button ng-click="delete()" class="ui button" title="Eliminar archivo" ng-class="{'delete file': ngModel}" ng-disabled="!ngModel || onlyDownload"><i class="remove icon"></i></button>
+</div>

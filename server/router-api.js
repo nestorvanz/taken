@@ -22,7 +22,6 @@ fs.readdirSync(repository).forEach(function( file ){ // Read each file into repo
 	}
 });
 
-
 router.use("/api/*", function( req, res ){ // 404 Not found handler
 	res.status(404).send("404 API not found"); // Send not found
 });

@@ -1,0 +1,52 @@
+header {
+	background-color: #111;
+	height: 50px;
+	padding: 0 20px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.layout.apps {
+	background-color: rgba(0,0,0,0.5);
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 60px;
+}
+
+.layout .cont {
+	background-color: #000;
+	overflow: auto;
+}
+
+.layout.menu {
+	background-color: rgba(0,0,0,0.5);
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 50px;
+	z-index: 2;
+}
+
+.layout.toolbar {
+	background-color: #fff !important;
+	box-shadow: 1px 2px 3px #ddd;
+	left: 0;
+	padding: 5px 10px;
+	position: fixed;
+	top: 50px;
+	width: 100%;
+	z-index: 1;
+}
+
+main { padding: 65px 10px; }
+main .page{ padding-top: 50px; }
+
+/* Semantic */
+.ui.modal>.header {
+	padding-right: 1rem !important;
+}

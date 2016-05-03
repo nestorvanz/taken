@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="appController">
+<head>
+	<title>Change title</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+	<!-- ================================================================================================ -->
+	
+	<!-- Semantic UI -->
+	<link rel="stylesheet" href="/public/libs/semantic_ui/semantic.min.css">
+	<!-- Classes -->
+	<link rel="stylesheet" href="/public/css/classes.css">
+	<!-- Layout -->
+	<link rel="stylesheet" href="/public/css/layout.css">
+	<!-- Media -->
+	<link rel="stylesheet" href="/public/css/media.css">
+	
+	<!-- ================================================================================================ -->
+	
+	<!-- Semantic UI -->
+	<script type="text/javascript" src="/public/libs/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/libs/semantic_ui/semantic.min.js"></script>
+	<!-- Angular JS -->
+	<script type="text/javascript" src="/public/libs/angular/angular.min.js"></script>
+	<!-- Angular UI Router & OC Lazy Load -->
+	<script type="text/javascript" src="/public/libs/angular_ui_router/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="/public/libs/oc_lazy_load/ocLazyLoad.min.js"></script>
+	<!-- Angular Validator -->
+	<script type="text/javascript" src="/public/libs/angular_validator/angular-validator.min.js"></script>
+	<!-- Messenger -->
+	<script type="text/javascript" src="/public/js/messenger.js"></script>
+	<!-- Layout -->
+	<script type="text/javascript" src="/public/js/layout.js"></script>
+	<!-- FNC -->
+	<script type="text/javascript" src="/public/js/fnc.js"></script>
+	<!-- UI Router States -->
+	<script type="text/javascript" src="/_/controllers/states.js"></script>
+	<!-- App Controller -->
+	<script type="text/javascript" src="/public/js/app.js"></script>
+
+</head>
+<body>
+	<header ng-include="layout.header" onload=""></header>
+	
+	<div ng-include="layout.menu" onload=""></div>
+	
+	<main ui-view></main>
+	
+	<messages></messages>
+</body>
+</html>

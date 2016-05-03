@@ -3,11 +3,8 @@ var config = require("./server/config"),
 
 var app = express();
 
-app.use(require("./server/router-api"));
-
-app.get("/", function( req, res ){
-	res.send("My first application...");
-});
+app.use(require("./server/router-api")); // API's
+app.use(require("./server/router-web")); // Web pages
 
 var port = process.env.PORT || config.port;
 

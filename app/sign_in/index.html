@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="signIn" ng-controller="signInController">
+<head>
+	<title>Inicia sesión</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+	<link rel="icon" href="/public/img/icon.png">
+
+	<!-- ================================================================================================ -->
+	
+	<!-- Semantic UI -->
+	<link rel="stylesheet" href="/public/libs/semantic_ui/semantic.min.css">
+	<!-- Classes -->
+	<link rel="stylesheet" href="/public/css/classes.css">
+
+	<style>
+		body {
+			background-image: url("/public/img/background.png");
+			background-position: center;
+			background-size: cover;
+		}
+	</style>
+	
+	<!-- ================================================================================================ -->
+	
+	<!-- Angular JS -->
+	<script type="text/javascript" src="/public/libs/angular/angular.min.js"></script>
+	<!-- App Controller -->
+	<script type="text/javascript" src="/sign_in/controllers/sign-in.js"></script>
+
+</head>
+<body>
+	<div class="table h100">
+		<div class="cell vertical align middle">
+			<div class="ui segment max w400 margin auto">
+				<h2 class="ui center aligned icon header">
+					<i class="circular lock icon"></i>
+				</h2>
+
+				<form ng-submit="signIn()" class="ui form max w300 margin auto">
+					<div class="field">
+						<label for="">Correo</label>
+						<input type="text" ng-model="usuario.correo" name="correo" required>
+					</div>
+					<div class="field">
+						<label for="">Contraseña</label>
+						<input type="password" ng-model="usuario.contrasena" requried>
+					</div>
+					<div class="field error" ng-if="error">
+						<label for="">{{error}}</label>
+					</div>
+					<div class="field">
+						<button class="ui fluid teal button">Sign In</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
