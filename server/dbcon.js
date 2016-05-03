@@ -5,7 +5,12 @@ module.exports = {
 		var connection;
 		switch( database.provider ){
 			case "MongoDB":
-				var connectionString = "mongodb://" +database.server +"/" +database.name;
+				var connectionString = "mongodb://";
+				if( database.security ){
+					connectionString += database.user +":"+ database.password +"@";
+				}
+				connectionString += database.server +":"+ database.port +"/" +database.name;
+
 				connection = mongoose.createConnection(connectionString);
 				connection.on('error', function( error ){
 					console.log(error.message);
